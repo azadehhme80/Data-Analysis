@@ -9,7 +9,7 @@ businesses
 countries 
 */
 
---Let's -- Select the oldest and newest founding years from the businesses table
+--Let's Select the oldest and newest founding years from the businesses table
 ​
 select min(year_founded) as min,
        max(year_founded)  as max
@@ -53,29 +53,13 @@ join businesses b on b.category_code = c.category_code
 group by c.category
 order by n desc
 limit 10;
- * postgresql:///oldestbusinesses
-10 rows affected.
-category	n
-Banking & Finance	37
-Distillers, Vintners, & Breweries	22
-Aviation & Transport	19
-Postal Service	16
-Manufacturing & Production	15
-Media	7
-Agriculture	6
-Cafés, Restaurants & Bars	6
-Food & Beverages	6
-Tourism & Hotels	4
-6. Oldest business by continent
-It looks like "Banking & Finance" is the most popular category. Maybe that's where you should aim if you want to start a thousand-year business.
-
+ 
+/*-- It looks like "Banking & Finance" is the most popular category. 
 One thing we haven't looked at yet is where in the world these really old businesses are. To answer these questions, we'll need to join the businesses table to the countries table. Let's start by asking how old the oldest business is on each continent.
-
-%%sql
 ​
 -- Select the oldest founding year (as "oldest")from businesses, 
 -- and continent from countries
--- for each continent, ordered from oldest to newest 
+-- for each continent, ordered from oldest to newest */
 ​
 select min(year_founded) as oldest,
        continent
@@ -85,9 +69,8 @@ group by continent
 order by oldest asc
 ​
         
-
-​
--- Select .business, founding year, category, country, and continent
+-- use join to connect the 3 tables and then  Select .business, founding year, category, country, and continent
+       
 select
     business,
     year_founded ,
@@ -98,8 +81,7 @@ from businesses b
 join categories c on  b.category_code = c.category_code 
 join countries t on b.country_code = t.country_code
 ​
- 
- ​
+  ​
 -- Count the number of businesses in each continent and category
 ​
 select
