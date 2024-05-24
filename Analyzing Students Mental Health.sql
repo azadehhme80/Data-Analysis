@@ -1,3 +1,10 @@
+/*
+In the Analyzing Students' Mental Health in SQL project, we use your PostgreSQL skills to analyze the student data from a Japanese international university and spot one of the most influencing factors impacting the mental health of international students.
+
+In this Project we focus on a specific contributing factor—the length of stay and how it impacts the average diagnostic scores of international students.
+
+*/
+
 select	stay,
 -- Performing the calculations
 		count(inter_dom) count_int,
